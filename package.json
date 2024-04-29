@@ -1,5 +1,5 @@
 {
-  "name": "js-webpack-template",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "Pre configured template with webpack",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arthwr/js-webpack-template.git"
+    "url": "git+https://github.com/Arthwr/weather-app.git"
   },
   "author": "https://github.com/arthwr",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Arthwr/js-webpack-template/issues"
+    "url": "https://github.com/Arthwr/weather-app/issues"
   },
-  "homepage": "https://github.com/Arthwr/js-webpack-template#readme",
+  "homepage": "https://github.com/Arthwr/weather-app#readme",
   "devDependencies": {
     "@babel/core": "^7.24.4",
     "@babel/preset-env": "^7.24.4",
