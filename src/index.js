@@ -12,5 +12,6 @@ const createWeatherApp = (model, view, controller, storage) => {
   console.log("%cApp is running", "color: green;");
   return { model, view, controller, storage };
 };
+const weatherApp = createWeatherApp(model, view, controller, storage);
 
-createWeatherApp(model, view, controller, storage);
+weatherApp.model.createWeatherData("forecastWeather", "Astana");
