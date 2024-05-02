@@ -1,0 +1,15 @@
+@import url(normalize.css);
+
+@font-face {
+  font-family: "Geist";
+  src: url("../assets/geist-font/GeistVF.woff2") format("woff2-variations"),
+    url("../assets/geist-font/GeistVF.woff") format("woff-variations");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root {
+  font-family: "Geist", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+}
