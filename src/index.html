@@ -6,16 +6,102 @@
     <title>Weather App</title>
   </head>
   <body>
-    <section>
-      <div id="app">
-        <h1>Weather Violet</h1>
-        <form id="search">
-          <input type="text" id="search-input" placeholder="Search.." />
-          <button type="submit">
-            <img src="assets/search.svg" alt="Search Icon" />
-          </button>
-        </form>
-      </div>
-    </section>
+    <main>
+      <section>
+        <div id="app">
+          <h1>Weather Violet</h1>
+          <form id="search">
+            <input type="text" id="search-input" placeholder="Search.." />
+            <button type="submit">
+              <img src="assets/search.svg" alt="Search Icon" />
+            </button>
+          </form>
+          <div id="front-widget">
+            <div class="left-bar">
+              <div>
+                <div class="country">United Kingdom</div>
+                <div class="city-region">London</div>
+              </div>
+              <div class="muted">
+                <div class="date">May 3rd, 2024</div>
+                <div class="day-time">Tuesday 19:00 PM</div>
+              </div>
+            </div>
+            <div class="right-bar">
+              <div class="weather-current">
+                <div>
+                  <div class="condition">Sunny</div>
+                  <div>
+                    <div>Feels like:</div>
+                    <div class="temp-current">+14 °C</div>
+                  </div>
+                </div>
+                <div>
+                  <img
+                    class="weather-icon spin"
+                    src="assets/sun.svg"
+                    alt="Weather icon"
+                  />
+                </div>
+              </div>
+              <div class="air-quality">Air Quality: Good</div>
+            </div>
+          </div>
+          <div id="tab-widget">
+            <div class="tab">
+              <div>
+                <div>
+                  <div>
+                    <div class="date">03/05</div>
+                    <div class="day">Tuesday</div>
+                  </div>
+                  <div class="temp-wrapper">
+                    <div>Feels like:</div>
+                    <div class="temperature">+14 °C</div>
+                  </div>
+                </div>
+                <div class="weather-icon">
+                  <img src="assets/sun-sm.svg" alt="Icon of sun" />
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <div>
+                <div>
+                  <div>
+                    <div class="date">04/05</div>
+                    <div class="day">Wednesday</div>
+                  </div>
+                  <div class="temp-wrapper">
+                    <div>Feels like:</div>
+                    <div class="temperature">+2 °C</div>
+                  </div>
+                </div>
+                <div class="weather-icon">
+                  <img src="assets/rain-sm.svg" alt="Icon of rain" />
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <div>
+                <div>
+                  <div>
+                    <div class="date">05/05</div>
+                    <div class="day">Thursday</div>
+                  </div>
+                  <div class="temp-wrapper">
+                    <div >Feels like:</div>
+                    <div class="temperature">+7 °C</div>
+                  </div>
+                </div>
+                <div class="weather-icon">
+                  <img src="assets/storm-sm.svg" alt="Icon of storm" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

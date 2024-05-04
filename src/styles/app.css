@@ -16,6 +16,7 @@
   --vista-blue: #a1a1eaff;
   --alabaster: #e9ebe5ff;
   --white: #ffffffff;
+  --wisteria: #a8a0cf;
   font-family: "Geist", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
@@ -39,6 +40,25 @@ section {
   padding-top: 50px;
 }
 
+/* Utils */
+
+.muted {
+  color: var(--gray);
+}
+
+.spin {
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0dg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* App */
 #app {
   display: flex;
@@ -54,6 +74,7 @@ h1 {
   font-weight: 500;
 }
 
+/* Search */
 form {
   display: flex;
   margin-top: 3rem;
@@ -73,13 +94,115 @@ form > input {
   background-color: var(--lavender-web);
 }
 
+form > input:focus {
+  outline-color: var(--wisteria);
+}
+
 form > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-basis: 58px;
   flex-shrink: 0;
+  cursor: pointer;
   background-color: var(--tropical-indigo);
 }
 
 form > img {
   width: 32px;
   height: 32px;
+}
+
+/* Front widget */
+#front-widget {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+  min-height: 125px;
+  justify-content: space-between;
+}
+
+.left-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left-bar > div:first-child {
+  font-size: 1.5rem;
+}
+
+.left-bar > div:first-child + div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.right-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-bar .condition,
+.right-bar .temp-current {
+  font-size: 1.5rem;
+}
+
+.weather-current {
+  display: flex;
+  gap: 12px;
+}
+
+.weather-current > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Tab widget */
+#tab-widget {
+  display: flex;
+  justify-content: space-between;
+  min-height: 120px;
+  width: 100%;
+  margin-top: 1.5rem;
+  background-color: var(--lavender-web);
+  border-radius: 0.5rem;
+  border: 0;
+}
+
+.tab {
+  display: flex;
+  cursor: pointer;
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.tab > div {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+}
+
+.tab > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tab .day {
+  font-weight: 600;
+}
+
+.tab .weather-icon {
+  align-self: flex-end;
+}
+
+.tab .temp-wrapper {
+  display: flex;
+  gap: 0.5rem;
 }
