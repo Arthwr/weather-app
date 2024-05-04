@@ -12,4 +12,4 @@ const createWeatherApp = (model, view, controller) => {
 };
 const weatherApp = createWeatherApp(model, view, controller);
 
-weatherApp.model.createWeatherData("forecastWeather", "Astana");
+// weatherApp.model.createWeatherData("forecastWeather", "Almaty");
