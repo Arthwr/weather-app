@@ -1,3 +1,5 @@
+import formatDate from "./helpers/formatDate";
+
 const KEY = "71242ef4ffcb4134949162751242604";
 const FORECAST_DAYS = 3;
 const AIR_QUALITY = "yes";
@@ -7,10 +9,9 @@ const API_METHODS = {
 
 export const Model = () => {
   const fetchWeatherData = async (method, query) => {
+    const url = `http://api.weatherapi.com/v1/${API_METHODS[method]}?key=${KEY}&q=${query}&days=${FORECAST_DAYS}&aqi=${AIR_QUALITY}`;
     try {
-      const response = await fetch(
-        `http://api.weatherapi.com/v1/${API_METHODS[method]}?key=${KEY}&q=${query}&days=${FORECAST_DAYS}&aqi=${AIR_QUALITY}`
-      );
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -24,6 +25,8 @@ export const Model = () => {
 
   const transformWeatherData = (data) => {
     const { current, location, forecast } = data;
+    const [date, time] = location.localtime.split(" ");
+    const formattedDate = formatDate(date);
 
     const currentWeather = {
       condition: current.condition,
@@ -51,9 +54,9 @@ export const Model = () => {
 
     return {
       country: location.country,
-      region: location.region,
-      city: location.name,
-      time: location.localtime,
+      cityRegion: `${location.name}, ${location.region}`,
+      date: formattedDate,
+      dayTime: time,
       current: currentWeather,
       forecast: forecastArray,
     };
