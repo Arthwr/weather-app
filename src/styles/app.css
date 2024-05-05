@@ -200,6 +200,8 @@ form > img {
 
 .tab .weather-icon {
   align-self: flex-end;
+  display: flex;
+  align-items: center;
 }
 
 .tab .temp-wrapper {
