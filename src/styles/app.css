@@ -14,7 +14,7 @@
   --gray: #808080ff;
   --black: #09090bff;
   --vista-blue: #a1a1eaff;
-  --alabaster: #e9ebe5ff;
+  --alabaster: #e2e4dc;
   --white: #ffffffff;
   --wisteria: #a8a0cf;
   font-family: "Geist", ui-sans-serif, system-ui, sans-serif,
@@ -174,13 +174,13 @@ form > img {
 
 .tab {
   display: flex;
-  cursor: pointer;
   flex: 1;
   padding: 0.5rem;
 }
 
 .tab > div {
   display: flex;
+  cursor: pointer;
   flex: 1;
   justify-content: space-between;
   padding: 12px;
@@ -205,4 +205,74 @@ form > img {
 .tab .temp-wrapper {
   display: flex;
   gap: 0.5rem;
+}
+
+/* Main widget */
+#main-widget {
+  display: flex;
+  margin-top: 1rem;
+  width: 100%;
+  border: 1px solid var(--alabaster);
+  border-radius: 0.5rem;
+}
+
+#main-widget > div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2.25rem 3.25rem 2.25rem 1.5rem;
+}
+
+#main-widget .anchor-column {
+  display: flex;
+  font-size: 1.25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+}
+
+#main-widget .anchor {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.anchor > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  min-width: 65px;
+}
+
+.anchor img {
+  max-height: 65px;
+}
+
+.main-condition,
+.main-humidity,
+.main-uv {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.temp-column {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.temp-column > div {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+
+.main-temprange {
+  display: flex;
+  gap: 1rem;
+  font-size: 2.5rem;
 }
