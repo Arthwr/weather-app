@@ -12,8 +12,10 @@ export const Controller = (model, view) => {
       });
   };
 
-  const init = () => {
-    view.searchButton.addEventListener("click", handleSearch);
-  };
+  const init = () => view.searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleSearch();
+    });
+    
   return { init };
 };

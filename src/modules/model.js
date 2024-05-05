@@ -1,4 +1,6 @@
 import formatDate from "./helpers/formatDate";
+import formatTemperature from "./helpers/formatTemperature";
+import formatTime from "./helpers/formatTime";
 
 const KEY = "71242ef4ffcb4134949162751242604";
 const FORECAST_DAYS = 3;
@@ -26,11 +28,14 @@ export const Model = () => {
   const transformWeatherData = (data) => {
     const { current, location, forecast } = data;
     const [date, time] = location.localtime.split(" ");
+
     const formattedDate = formatDate(date);
+    const formattedTime = formatTime(time);
+    const formattedTempC = formatTemperature(current.feelslike_c);
 
     const currentWeather = {
-      condition: current.condition,
-      tempC: current.feelslike_c,
+      condition: current.condition.text,
+      tempC: formattedTempC,
       tempF: current.feelslike_f,
       airQ: current.air_quality["us-epa-index"],
       humidity: current.humidity,
@@ -56,7 +61,7 @@ export const Model = () => {
       country: location.country,
       cityRegion: `${location.name}, ${location.region}`,
       date: formattedDate,
-      dayTime: time,
+      dayTime: formattedTime,
       current: currentWeather,
       forecast: forecastArray,
     };

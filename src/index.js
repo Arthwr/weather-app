@@ -12,6 +12,7 @@ const createWeatherApp = (model, view, controller) => {
   return { model, view, controller };
 };
 
-const weatherApp = createWeatherApp(model, view, controller);
+// const weatherApp = 
+createWeatherApp(model, view, controller);
 
-weatherApp.model.createWeatherData("forecastWeather", "Almaty");
+// weatherApp.model.createWeatherData("forecastWeather", "Almaty");
