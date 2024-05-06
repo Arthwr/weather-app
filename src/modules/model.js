@@ -1,3 +1,4 @@
+import formatAirQuality from "./helpers/formatAirQuality";
 import formatDate from "./helpers/formatDate";
 import formatTemperature from "./helpers/formatTemperature";
 import formatTime from "./helpers/formatTime";
@@ -32,12 +33,14 @@ export const Model = () => {
     const formattedDate = formatDate(date);
     const formattedTime = formatTime(time);
     const formattedTempC = formatTemperature(current.feelslike_c);
+    const formattedAirQ = formatAirQuality(current.air_quality["us-epa-index"])
 
     const currentWeather = {
       condition: current.condition.text,
+      conditionIcon: current.condition.icon,
       tempC: formattedTempC,
       tempF: current.feelslike_f,
-      airQ: current.air_quality["us-epa-index"],
+      airQ: formattedAirQ,
       humidity: current.humidity,
       uv: current.uv,
     };

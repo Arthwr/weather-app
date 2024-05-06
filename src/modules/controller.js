@@ -8,7 +8,6 @@ export const Controller = (model, view) => {
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
-        view.showError(error);
       });
   };
 

@@ -10,6 +10,7 @@ export const View = () => {
   const condition = document.querySelector(".condition");
   const tempC = document.querySelector(".temp-current");
   const airQ = document.querySelector(".air-quality");
+  const icon = document.querySelector(".weather-current img");
 
   const frontWidgetMap = {
     country,
@@ -24,10 +25,15 @@ export const View = () => {
     airQ,
   };
 
+  const updateConditionIcon = (element, url) => {
+    element.src = url;
+  };
+
   const updateCurrentWeather = (data) => {
     Object.keys(currentWeatherMap).forEach((key) => {
       currentWeatherMap[key].textContent = data.current[key];
     });
+    updateConditionIcon(icon, data.current.conditionIcon);
   };
 
   const updateFrontWidget = (data) => {

@@ -126,6 +126,7 @@ form > img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .left-bar > div:first-child {
@@ -136,6 +137,10 @@ form > img {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.city-region {
+  max-width: 45ch;
 }
 
 .right-bar {
