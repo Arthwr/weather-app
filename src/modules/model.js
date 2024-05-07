@@ -1,5 +1,7 @@
 import formatAirQuality from "./helpers/formatAirQuality";
 import formatDate from "./helpers/formatDate";
+import formatTabDate from "./helpers/formatTabDate";
+import formTabDay from "./helpers/formatTabDay";
 import formatTemperature from "./helpers/formatTemperature";
 import formatTime from "./helpers/formatTime";
 
@@ -30,21 +32,16 @@ export const Model = () => {
     const { current, location, forecast } = data;
     const [date, time] = location.localtime.split(" ");
 
-    const formattedDate = formatDate(date);
-    const formattedTime = formatTime(time);
-    const formattedTempC = formatTemperature(current.feelslike_c);
-    const formattedAirQ = formatAirQuality(current.air_quality["us-epa-index"]);
-
-    const forecastArray = forecast.forecastday.map((forecastDay, index) => ({
-      day: `Day ${index + 1}`,
-      tabDate: forecastDay.date,
+    const forecastArray = forecast.forecastday.map((forecastDay) => ({
+      tabDay: formTabDay(forecastDay.date),
+      tabDate: formatTabDate(forecastDay.date),
       tabCondition: forecastDay.day.condition.text,
       tabConditionIcon: forecastDay.day.condition.icon,
       maxTempC: forecastDay.day.maxtemp_c,
       minTempC: forecastDay.day.mintemp_c,
       maxTempF: forecastDay.day.maxtemp_f,
       minTempF: forecastDay.day.mintemp_f,
-      tabTemp: forecastDay.day.avgtemp_c,
+      tabTemp: formatTemperature(forecastDay.day.avgtemp_c),
       averageF: forecastDay.day.avgtemp_f,
       uv: forecastDay.day.uv,
     }));
@@ -52,13 +49,13 @@ export const Model = () => {
     return {
       country: location.country,
       cityRegion: `${location.name}, ${location.region}`,
-      date: formattedDate,
-      dayTime: formattedTime,
+      date: formatDate(date),
+      dayTime: formatTime(time),
       condition: current.condition.text,
       conditionIcon: current.condition.icon,
-      tempC: formattedTempC,
+      tempC: formatTemperature(current.feelslike_c),
       tempF: current.feelslike_f,
-      airQ: formattedAirQ,
+      airQ: formatAirQuality(current.air_quality["us-epa-index"]),
       humidity: current.humidity,
       uv: current.uv,
       forecast: forecastArray,

@@ -63,7 +63,7 @@ section {
 #app {
   display: flex;
   flex-direction: column;
-  flex-basis: 700px;
+  flex-basis: 800px;
   align-items: center;
 }
 
