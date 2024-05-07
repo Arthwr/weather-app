@@ -8,6 +8,7 @@ export const View = () => {
 
   // Tab widget
   const tabElements = document.querySelectorAll(".tab");
+  const tabButtons = document.querySelectorAll(".tab > div");
 
   const frontWidgetElements = [
     { key: "country", selector: ".country" },
@@ -39,6 +40,15 @@ export const View = () => {
     });
   };
 
+  const makeTabActive = (e) => {
+    const clickedTab = e.target.closest(".tab > div");
+    if (!clickedTab) return;
+    tabButtons.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    clickedTab.classList.add("active");
+  };
+
   const updateFrontWidget = (data) => {
     updateWidget(frontWidgetElements, data, frontWidget);
     updateConditionIcon(frontIcon, data.conditionIcon);
@@ -47,7 +57,6 @@ export const View = () => {
   const updateForecastWidget = (data) => {
     tabElements.forEach((tab, index) => {
       updateWidget(forecastWidgetElements, data.forecast[index], tab);
-
       const icon = tab.querySelector(".weather-icon img");
       updateConditionIcon(icon, data.forecast[index].tabConditionIcon);
     });
@@ -58,5 +67,5 @@ export const View = () => {
     updateForecastWidget(data);
   };
 
-  return { searchInput, searchForm, updateView };
+  return { searchInput, searchForm, tabElements, updateView, makeTabActive };
 };

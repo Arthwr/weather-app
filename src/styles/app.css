@@ -41,13 +41,21 @@ section {
 }
 
 /* Utils */
-
 .muted {
   color: var(--gray);
 }
 
 .spin {
   animation: spin 12s linear infinite;
+}
+
+.tab > div {
+  transition: background-color 0.3s;
+}
+
+.tab > .active {
+  color: var(--white);
+  background-color: var(--vista-blue);
 }
 
 @keyframes spin {

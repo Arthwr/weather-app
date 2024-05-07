@@ -11,10 +11,19 @@ export const Controller = (model, view) => {
       });
   };
 
-  const init = () => view.searchForm.addEventListener("submit", (e) => {
+  const handleTabClick = (e) => {
+    view.makeTabActive(e);
+  };
+
+  const init = () => {
+    view.searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       handleSearch();
     });
-    
+    view.tabElements.forEach((tab) => {
+      tab.addEventListener("click", handleTabClick);
+    });
+  };
+
   return { init };
 };
