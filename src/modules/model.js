@@ -1,9 +1,11 @@
-import formatAirQuality from "./helpers/formatAirQuality";
-import formatDate from "./helpers/formatDate";
-import formatTabDate from "./helpers/formatTabDate";
-import formTabDay from "./helpers/formatTabDay";
-import formatTemperature from "./helpers/formatTemperature";
-import formatTime from "./helpers/formatTime";
+import {
+  formatTabDate,
+  formatAirQuality,
+  formTabDay,
+  formatDate,
+  formatTemperature,
+  formatTime,
+} from "./utils/helpers";
 
 const KEY = "71242ef4ffcb4134949162751242604";
 const FORECAST_DAYS = 3;
