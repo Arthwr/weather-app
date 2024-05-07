@@ -3,48 +3,59 @@ export const View = () => {
   const searchForm = document.querySelector("#search");
 
   // Front widget
-  const country = document.querySelector(".country");
-  const cityRegion = document.querySelector(".city-region");
-  const date = document.querySelector(".date");
-  const dayTime = document.querySelector(".day-time");
-  const condition = document.querySelector(".condition");
-  const tempC = document.querySelector(".temp-current");
-  const airQ = document.querySelector(".air-quality");
-  const icon = document.querySelector(".weather-current img");
+  const frontWidget = document.querySelector("#front-widget");
+  const frontIcon = document.querySelector(".weather-icon");
 
-  const frontWidgetMap = {
-    country,
-    cityRegion,
-    date,
-    dayTime,
-  };
+  // Tab widget
+  const tabElements = document.querySelectorAll(".tab");
 
-  const currentWeatherMap = {
-    condition,
-    tempC,
-    airQ,
-  };
+  const frontWidgetElements = [
+    { key: "country", selector: ".country" },
+    { key: "cityRegion", selector: ".city-region" },
+    { key: "date", selector: ".date" },
+    { key: "dayTime", selector: ".day-time" },
+    { key: "condition", selector: ".condition" },
+    { key: "tempC", selector: ".temp-current" },
+    { key: "airQ", selector: ".air-quality" },
+    { key: "icon", selector: ".weather-icon" },
+  ];
+
+  const forecastWidgetElements = [
+    { key: "tabDate", selector: ".date" },
+    { key: "tabDay", selector: ".day" },
+    { key: "tabTemp", selector: ".temperature" },
+  ];
 
   const updateConditionIcon = (element, url) => {
-    element.src = url;
+    if (element) element.src = url;
   };
 
-  const updateCurrentWeather = (data) => {
-    Object.keys(currentWeatherMap).forEach((key) => {
-      currentWeatherMap[key].textContent = data.current[key];
+  const updateWidget = (elements, data, parent) => {
+    elements.forEach(({ key, selector }) => {
+      const element = parent.querySelector(selector);
+      if (element) {
+        element.textContent = data[key];
+      }
     });
-    updateConditionIcon(icon, data.current.conditionIcon);
   };
 
   const updateFrontWidget = (data) => {
-    Object.keys(frontWidgetMap).forEach((key) => {
-      frontWidgetMap[key].textContent = data[key];
+    updateWidget(frontWidgetElements, data, frontWidget);
+    updateConditionIcon(frontIcon, data.conditionIcon);
+  };
+
+  const updateForecastWidget = (data) => {
+    tabElements.forEach((tab, index) => {
+      updateWidget(forecastWidgetElements, data.forecast[index], tab);
+
+      const icon = tab.querySelector(".weather-icon img");
+      updateConditionIcon(icon, data.forecast[index].tabConditionIcon);
     });
-    updateCurrentWeather(data);
   };
 
   const updateView = (data) => {
     updateFrontWidget(data);
+    updateForecastWidget(data);
   };
 
   return { searchInput, searchForm, updateView };

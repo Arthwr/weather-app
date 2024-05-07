@@ -33,31 +33,20 @@ export const Model = () => {
     const formattedDate = formatDate(date);
     const formattedTime = formatTime(time);
     const formattedTempC = formatTemperature(current.feelslike_c);
-    const formattedAirQ = formatAirQuality(current.air_quality["us-epa-index"])
-
-    const currentWeather = {
-      condition: current.condition.text,
-      conditionIcon: current.condition.icon,
-      tempC: formattedTempC,
-      tempF: current.feelslike_f,
-      airQ: formattedAirQ,
-      humidity: current.humidity,
-      uv: current.uv,
-    };
+    const formattedAirQ = formatAirQuality(current.air_quality["us-epa-index"]);
 
     const forecastArray = forecast.forecastday.map((forecastDay, index) => ({
       day: `Day ${index + 1}`,
-      forecast: {
-        date: forecastDay.date,
-        condition: forecastDay.day.condition.text,
-        maxTempC: forecastDay.day.maxtemp_c,
-        minTempC: forecastDay.day.mintemp_c,
-        maxTempF: forecastDay.day.maxtemp_f,
-        minTempF: forecastDay.day.mintemp_f,
-        averageC: forecastDay.day.avgtemp_c,
-        averageF: forecastDay.day.avgtemp_f,
-        uv: forecastDay.day.uv,
-      },
+      tabDate: forecastDay.date,
+      tabCondition: forecastDay.day.condition.text,
+      tabConditionIcon: forecastDay.day.condition.icon,
+      maxTempC: forecastDay.day.maxtemp_c,
+      minTempC: forecastDay.day.mintemp_c,
+      maxTempF: forecastDay.day.maxtemp_f,
+      minTempF: forecastDay.day.mintemp_f,
+      tabTemp: forecastDay.day.avgtemp_c,
+      averageF: forecastDay.day.avgtemp_f,
+      uv: forecastDay.day.uv,
     }));
 
     return {
@@ -65,7 +54,13 @@ export const Model = () => {
       cityRegion: `${location.name}, ${location.region}`,
       date: formattedDate,
       dayTime: formattedTime,
-      current: currentWeather,
+      condition: current.condition.text,
+      conditionIcon: current.condition.icon,
+      tempC: formattedTempC,
+      tempF: current.feelslike_f,
+      airQ: formattedAirQ,
+      humidity: current.humidity,
+      uv: current.uv,
       forecast: forecastArray,
     };
   };
