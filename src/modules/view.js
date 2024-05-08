@@ -57,6 +57,13 @@ export const View = () => {
     });
   };
 
+  const activateFirstTab = () => {
+    const firstTab = document.querySelector(".tab > div:first-child");
+    if (firstTab) {
+      firstTab.click();
+    }
+  };
+
   const makeTabActive = (e) => {
     const clickedTab = e.target.closest(".tab > div");
     if (!clickedTab) return;
@@ -86,6 +93,7 @@ export const View = () => {
   const updateView = (data) => {
     updateFrontWidget(data);
     updateForecastWidget(data);
+    activateFirstTab();
   };
 
   return {

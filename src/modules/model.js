@@ -80,10 +80,8 @@ export const Model = () => {
 
   const createWeatherData = async (method, query) => {
     const data = await fetchWeatherData(method, query);
-    const weatherData = transformWeatherData(data);
-    storeWeatherData(weatherData);
-    return weatherData;
+    return transformWeatherData(data);
   };
 
-  return { createWeatherData, getStoredWeatherData };
+  return { createWeatherData, getStoredWeatherData, storeWeatherData };
 };

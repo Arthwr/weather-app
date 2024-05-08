@@ -4,6 +4,7 @@ export const Controller = (model, view) => {
     model
       .createWeatherData("forecastWeather", query)
       .then((weatherData) => {
+        model.storeWeatherData(weatherData);
         view.updateView(weatherData);
       })
       .catch((error) => {
