@@ -15,6 +15,18 @@ const API_METHODS = {
 };
 
 export const Model = () => {
+  let storedWeatherData = null;
+
+  const storeWeatherData = (weatherData) => {
+    storedWeatherData = weatherData;
+  };
+
+  const getStoredWeatherData = () => {
+    if (storedWeatherData) {
+      return storedWeatherData;
+    }
+  };
+
   const fetchWeatherData = async (method, query) => {
     const url = `http://api.weatherapi.com/v1/${API_METHODS[method]}?key=${KEY}&q=${query}&days=${FORECAST_DAYS}&aqi=${AIR_QUALITY}`;
     try {
@@ -39,12 +51,13 @@ export const Model = () => {
       tabDate: formatTabDate(forecastDay.date),
       tabCondition: forecastDay.day.condition.text,
       tabConditionIcon: forecastDay.day.condition.icon,
-      maxTempC: forecastDay.day.maxtemp_c,
-      minTempC: forecastDay.day.mintemp_c,
+      maxTempC: formatTemperature(forecastDay.day.maxtemp_c),
+      minTempC: formatTemperature(forecastDay.day.mintemp_c),
       maxTempF: forecastDay.day.maxtemp_f,
       minTempF: forecastDay.day.mintemp_f,
       tabTemp: formatTemperature(forecastDay.day.avgtemp_c),
       averageF: forecastDay.day.avgtemp_f,
+      avghumidity: forecastDay.day.avghumidity,
       uv: forecastDay.day.uv,
     }));
 
@@ -67,9 +80,9 @@ export const Model = () => {
   const createWeatherData = async (method, query) => {
     const data = await fetchWeatherData(method, query);
     const weatherData = transformWeatherData(data);
-    console.log(weatherData);
+    storeWeatherData(weatherData);
     return weatherData;
   };
 
-  return { createWeatherData };
+  return { createWeatherData, getStoredWeatherData };
 };

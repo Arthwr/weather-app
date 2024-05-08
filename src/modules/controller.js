@@ -13,6 +13,11 @@ export const Controller = (model, view) => {
 
   const handleTabClick = (e) => {
     view.makeTabActive(e);
+    const index = view.captureTabIndex(e);
+    const tabData = model.getStoredWeatherData();
+    if (tabData) {
+      view.updateMainWidget(tabData, index);
+    }
   };
 
   const init = () => {

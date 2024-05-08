@@ -7,8 +7,10 @@ export const View = () => {
   const frontIcon = document.querySelector(".weather-icon");
 
   // Tab widget
-  const tabElements = document.querySelectorAll(".tab");
-  const tabButtons = document.querySelectorAll(".tab > div");
+  const tabElements = document.querySelectorAll(".tab > div");
+
+  // Main widget
+  const mainWidget = document.querySelector("#main-widget");
 
   const frontWidgetElements = [
     { key: "country", selector: ".country" },
@@ -27,8 +29,23 @@ export const View = () => {
     { key: "tabTemp", selector: ".temperature" },
   ];
 
+  const mainWidgetElements = [
+    { key: "tabCondition", selector: ".main-condition" },
+    { key: "avghumidity", selector: ".main-humidity" },
+    { key: "uv", selector: ".main-uv" },
+    { key: "minTempC", selector: ".main-lowt" },
+    { key: "maxTempC", selector: ".main-hight" },
+  ];
+
   const updateConditionIcon = (element, url) => {
     if (element) element.src = url;
+  };
+
+  const captureTabIndex = (e) => {
+    const clickedTab = e.target.closest(".tab > div");
+    if (!clickedTab) return;
+    const index = clickedTab.getAttribute("data-index");
+    return index;
   };
 
   const updateWidget = (elements, data, parent) => {
@@ -43,7 +60,7 @@ export const View = () => {
   const makeTabActive = (e) => {
     const clickedTab = e.target.closest(".tab > div");
     if (!clickedTab) return;
-    tabButtons.forEach((tab) => {
+    tabElements.forEach((tab) => {
       tab.classList.remove("active");
     });
     clickedTab.classList.add("active");
@@ -62,10 +79,22 @@ export const View = () => {
     });
   };
 
+  const updateMainWidget = (data, widgetIndex) => {
+    updateWidget(mainWidgetElements, data.forecast[widgetIndex], mainWidget);
+  };
+
   const updateView = (data) => {
     updateFrontWidget(data);
     updateForecastWidget(data);
   };
 
-  return { searchInput, searchForm, tabElements, updateView, makeTabActive };
+  return {
+    searchInput,
+    searchForm,
+    tabElements,
+    updateView,
+    makeTabActive,
+    captureTabIndex,
+    updateMainWidget,
+  };
 };
