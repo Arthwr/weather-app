@@ -1,3 +1,4 @@
+import formatUv from "./utils/formatUV";
 import {
   formatTabDate,
   formatAirQuality,
@@ -58,7 +59,7 @@ export const Model = () => {
       tabTemp: formatTemperature(forecastDay.day.avgtemp_c),
       averageF: forecastDay.day.avgtemp_f,
       avghumidity: forecastDay.day.avghumidity,
-      uv: forecastDay.day.uv,
+      uv: formatUv(forecastDay.day.uv),
     }));
 
     return {
