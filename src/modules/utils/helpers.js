@@ -4,3 +4,4 @@ export { default as formTabDay } from "./formatTabDay";
 export { default as formatDate } from "./formatDate";
 export { default as formatTemperature } from "./formatTemperature";
 export { default as formatTime } from "./formatTime";
+export { default as formatUV } from "./formatUV";

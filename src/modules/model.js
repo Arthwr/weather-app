@@ -1,4 +1,3 @@
-import formatUv from "./utils/formatUV";
 import {
   formatTabDate,
   formatAirQuality,
@@ -6,6 +5,7 @@ import {
   formatDate,
   formatTemperature,
   formatTime,
+  formatUV,
 } from "./utils/helpers";
 
 const KEY = "71242ef4ffcb4134949162751242604";
@@ -36,7 +36,6 @@ export const Model = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       console.error("Failed to fetch weather data: ", error);
@@ -59,7 +58,7 @@ export const Model = () => {
       tabTemp: formatTemperature(forecastDay.day.avgtemp_c),
       averageF: forecastDay.day.avgtemp_f,
       avghumidity: `${forecastDay.day.avghumidity}%`,
-      uv: formatUv(forecastDay.day.uv),
+      uv: formatUV(forecastDay.day.uv),
     }));
 
     return {
