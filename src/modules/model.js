@@ -58,7 +58,7 @@ export const Model = () => {
       minTempF: forecastDay.day.mintemp_f,
       tabTemp: formatTemperature(forecastDay.day.avgtemp_c),
       averageF: forecastDay.day.avgtemp_f,
-      avghumidity: forecastDay.day.avghumidity,
+      avghumidity: `${forecastDay.day.avghumidity}%`,
       uv: formatUv(forecastDay.day.uv),
     }));
 

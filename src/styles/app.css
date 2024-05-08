@@ -285,6 +285,10 @@ form > img {
   font-size: 2rem;
 }
 
+.temp-column > img {
+  max-height: 65px;
+}
+
 .main-temprange {
   display: flex;
   gap: 1rem;
