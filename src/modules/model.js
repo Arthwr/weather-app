@@ -46,19 +46,19 @@ export const Model = () => {
     const { current, location, forecast } = data;
     const [date, time] = location.localtime.split(" ");
 
-    const forecastArray = forecast.forecastday.map((forecastDay) => ({
-      tabDay: formTabDay(forecastDay.date),
-      tabDate: formatTabDate(forecastDay.date),
-      tabCondition: forecastDay.day.condition.text,
-      tabConditionIcon: forecastDay.day.condition.icon,
-      maxTempC: formatTemperature(forecastDay.day.maxtemp_c),
-      minTempC: formatTemperature(forecastDay.day.mintemp_c),
-      maxTempF: forecastDay.day.maxtemp_f,
-      minTempF: forecastDay.day.mintemp_f,
-      tabTemp: formatTemperature(forecastDay.day.avgtemp_c),
-      averageF: forecastDay.day.avgtemp_f,
-      avghumidity: `${forecastDay.day.avghumidity}%`,
-      uv: formatUV(forecastDay.day.uv),
+    const forecastArray = forecast.forecastday.map(({ date, day }) => ({
+      tabDay: formTabDay(date),
+      tabDate: formatTabDate(date),
+      tabCondition: day.condition.text,
+      tabConditionIcon: day.condition.icon,
+      maxTempC: formatTemperature(day.maxtemp_c),
+      minTempC: formatTemperature(day.mintemp_c),
+      maxTempF: day.maxtemp_f,
+      minTempF: day.mintemp_f,
+      tabTemp: formatTemperature(day.avgtemp_c),
+      averageF: day.avgtemp_f,
+      avghumidity: `${day.avghumidity}%`,
+      uv: formatUV(day.uv),
     }));
 
     return {

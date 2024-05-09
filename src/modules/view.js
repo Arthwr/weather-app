@@ -74,9 +74,7 @@ export const View = () => {
   const makeTabActive = (e) => {
     const clickedTab = e.target.closest(".tab > div");
     if (!clickedTab) return;
-    tabElements.forEach((tab) => {
-      tab.classList.remove("active");
-    });
+    tabElements.forEach((tab) => tab.classList.remove("active"));
     clickedTab.classList.add("active");
   };
 
