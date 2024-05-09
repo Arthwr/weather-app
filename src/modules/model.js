@@ -29,7 +29,7 @@ export const Model = () => {
   };
 
   const fetchWeatherData = async (method, query) => {
-    const url = `http://api.weatherapi.com/v1/${API_METHODS[method]}?key=${KEY}&q=${query}&days=${FORECAST_DAYS}&aqi=${AIR_QUALITY}`;
+    const url = `https://api.weatherapi.com/v1/${API_METHODS[method]}?key=${KEY}&q=${query}&days=${FORECAST_DAYS}&aqi=${AIR_QUALITY}`;
     try {
       const response = await fetch(url);
       if (!response.ok) {
