@@ -35,6 +35,6 @@ You can check out this hosted project at: [https://arthwr.github.io/to-do-list-a
 
 ### Img preview
 
-![arthwr github io_weather-app_](https://github.com/Arthwr/weather-app/assets/132221421/0a8c5ea1-36ed-4451-b9d2-cc65c4298e76)
+![arthwr github io_weather-app](https://github.com/Arthwr/weather-app/assets/132221421/31f9ad83-2e57-4048-8643-fc1a99a2d673)
 
 
