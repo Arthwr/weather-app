@@ -1,9 +1,11 @@
 export const Controller = (model, view) => {
   const handleSearch = (query) => {
+    view.toggleLoadingAnimation();
     query = query || view.searchInput.value;
     model
       .createWeatherData("forecastWeather", query)
       .then((weatherData) => {
+        view.toggleLoadingAnimation();
         model.storeWeatherData(weatherData);
         view.updateView(weatherData);
       })

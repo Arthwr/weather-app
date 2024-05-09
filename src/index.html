@@ -6,6 +6,11 @@
     <title>Weather App</title>
   </head>
   <body>
+    <div class="loading-bg">
+      <div class="load-wrapper">
+        <div class="loader"></div>
+      </div>
+    </div>
     <main>
       <section>
         <div id="app">
@@ -44,11 +49,14 @@
                   />
                 </div>
               </div>
-              <div>Air quality: <span class="air-quality">####  </span></div>
+              <div>
+                <div>Air quality:</div>
+                <span class="air-quality">####</span>
+              </div>
             </div>
           </div>
           <div id="tab-widget">
-            <div class="tab" >
+            <div class="tab">
               <div data-index="0">
                 <div>
                   <div>
@@ -65,7 +73,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab" >
+            <div class="tab">
               <div data-index="1">
                 <div>
                   <div>
@@ -82,7 +90,7 @@
                 </div>
               </div>
             </div>
-            <div class="tab" >
+            <div class="tab">
               <div data-index="2">
                 <div>
                   <div>

@@ -45,8 +45,40 @@ section {
   color: var(--gray);
 }
 
-.spin {
-  animation: spin 12s linear infinite;
+body > .show {
+  display: block;
+}
+
+.loading-bg {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  z-index: 9999;
+  position: absolute;
+}
+
+.load-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, var(--vista-blue) 94%, #0000)
+      top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, var(--vista-blue));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
 .tab > div {
@@ -155,6 +187,7 @@ form > img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .right-bar .condition,

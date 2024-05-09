@@ -2,6 +2,9 @@ export const View = () => {
   const searchInput = document.querySelector("#search > input");
   const searchForm = document.querySelector("#search");
 
+  // Loading bg
+  const loader = document.querySelector(".loading-bg");
+
   // Front widget
   const frontWidget = document.querySelector("#front-widget");
   const frontIcon = document.querySelector(".weather-icon");
@@ -36,6 +39,10 @@ export const View = () => {
     { key: "minTempC", selector: ".main-lowt" },
     { key: "maxTempC", selector: ".main-hight" },
   ];
+
+  const toggleLoadingAnimation = () => {
+    loader.classList.toggle("show");
+  };
 
   const updateConditionIcon = (element, url) => {
     if (element) element.src = url;
@@ -104,5 +111,6 @@ export const View = () => {
     makeTabActive,
     captureTabIndex,
     updateMainWidget,
+    toggleLoadingAnimation,
   };
 };
