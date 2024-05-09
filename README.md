@@ -31,7 +31,7 @@
 This project is a simple weather app built with the MVC model, primarily utilizing factory functions. It serves as a learning process to understand these concepts better.
 
 ### Live preview 
-You can check out this hosted project at: [here](https://arthwr.github.io/weather-app/)
+You can check out this hosted project [here](https://arthwr.github.io/weather-app/)
 
 ### Img preview
 
